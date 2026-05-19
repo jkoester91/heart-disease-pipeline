@@ -1,0 +1,19 @@
+Set-Content .gitignore @"
+# Caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Data and Local Artifacts (Tracked by DVC instead!)
+data/*.csv
+*.pkl
+*.joblib
+
+# MLflow Tracking Environments
+mlflow.db
+mlruns/
+.trash/
+
+# Generated Reports
+reports/*.html
+"@
