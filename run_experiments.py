@@ -9,7 +9,7 @@ from src.train import train_pipeline
 
 def run_parameter_sweep():
     # 1. Automatically pre-process the data first to generate the clean CSVs
-    print("🧹 Running data preprocessing pipeline...")
+    print("Running data preprocessing pipeline...")
     process_data() 
 
     # Define 5 distinct parameter combinations to evaluate performance
@@ -25,9 +25,7 @@ def run_parameter_sweep():
     with open("configs/config.yaml", "r") as f:
         config = yaml.safe_load(f)
 
-    print(f"🚀 Initializing automated grid sweep across {len(sweeps)} configurations...")
-    print(
-        f"🚀 Initializing automated grid sweep across {len(sweeps)} configurations...")
+    print(f" Initializing automated grid sweep across {len(sweeps)} configurations...")
 
     for i, params in enumerate(sweeps, 1):
         print(f"\n--- Running Experiment Configuration {i}/{len(sweeps)} ---")
