@@ -25,7 +25,7 @@ def evaluate_best_run():
     best_run = runs_df.iloc[0]
 
     print("\n==================================================")
-    print("🏆 BEST PERFORMING EXPERIMENT RUN RUN DETECTED 🏆")
+    print("BEST PERFORMING EXPERIMENT RUN RUN DETECTED")
     print("==================================================")
     print(f"Run ID:      {best_run['run_id']}")
     print(f"Accuracy:    {best_run['metrics.accuracy']:.4f}")

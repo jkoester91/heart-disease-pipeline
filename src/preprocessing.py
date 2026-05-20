@@ -78,4 +78,4 @@ def process_data():
     os.makedirs("data", exist_ok=True)
     train_df.to_csv("data/train_processed.csv", index=False)
     test_df.to_csv("data/test_processed.csv", index=False)
-    print("✨ Data preprocessed successfully! Saved train_processed.csv and test_processed.csv")
+    print("Data preprocessed successfully! Saved train_processed.csv and test_processed.csv")
