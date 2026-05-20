@@ -1,4 +1,3 @@
-Set-Content .gitignore @"
 # Caches
 __pycache__/
 *.py[cod]
@@ -16,4 +15,3 @@ mlruns/
 
 # Generated Reports
 reports/*.html
-"@
