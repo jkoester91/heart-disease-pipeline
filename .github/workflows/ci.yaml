@@ -15,9 +15,9 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install -r requirements.txt
-      - run: pytest -o pythonpath=. -v
+      - run: pytest tests/ -o pythonpath=. -v
 
-train:
+  train:
     needs: test
     runs-on: ubuntu-latest
     steps:
@@ -26,12 +26,8 @@ train:
         with:
           python-version: '3.11'
       - run: pip install -r requirements.txt
-      
-      # --- ADD THESE STEPS ---
       - name: Install DVC
         run: pip install dvc
       - name: Pull data from DVC
         run: dvc pull
-      # -----------------------
-      
       - run: python run_experiments.py
