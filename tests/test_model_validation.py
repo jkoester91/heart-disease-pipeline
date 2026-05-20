@@ -15,7 +15,7 @@ def mock_training_data():
 
 def test_model_prediction_shape_and_type(mock_training_data):
     """1. Verifies model produces predictions of the correct type and shape properties."""
-    X_train, X_test, y_train, _ = mock_training_data
+    X_train, X_test, y_train, y_test = mock_training_data
     
     model = RandomForestClassifier(n_estimators=10, max_depth=3, random_state=42)
     model.fit(X_train, y_train)
