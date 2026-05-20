@@ -1,4 +1,1 @@
-[core]
-    remote = local_remote
-['remote "local_remote"']
-    url = C:\Users\koesj\Documents\dvc-storage-bucket
+

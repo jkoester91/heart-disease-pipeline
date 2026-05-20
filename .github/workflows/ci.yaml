@@ -26,8 +26,13 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install -r requirements.txt
-      - name: Install DVC
-        run: pip install dvc
-      - name: Pull data from DVC
-        run: dvc pull
+      # Remove these DVC lines:
+      # - name: Install DVC
+      #   run: pip install dvc
+      # - name: Pull data from DVC
+      #   run: dvc pull
+      - name: Add data directly to repo
+        run: |
+          # Copy your heart_disease.csv to the repo and commit it
+          echo "Data will be committed directly to repo"
       - run: python run_experiments.py

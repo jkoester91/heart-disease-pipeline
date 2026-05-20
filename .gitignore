@@ -4,7 +4,7 @@ __pycache__/
 .pytest_cache/
 
 # Data and Local Artifacts (Tracked by DVC instead!)
-data/*.csv
+#data/*.csv  Commented out - we now track data files directly
 *.pkl
 *.joblib
 
