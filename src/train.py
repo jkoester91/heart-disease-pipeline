@@ -1,4 +1,5 @@
 import os
+import sys
 import yaml
 import pandas as pd
 import mlflow
@@ -71,6 +72,15 @@ def train_pipeline():
         mlflow.sklearn.log_model(model, "model")
         
         print(f"✅ Run Logged Successfully: Accuracy={acc:.4f} | Trees={config['model']['n_estimators']}")
+        
+        # 5. Threshold Enforcement for CI/CD
+        # This ensures the pipeline fails if the model is not up to standard
+        min_acc = config["model"].get("min_accuracy_threshold", 0.70)
+        if acc < min_acc:
+            print(f"❌ Threshold check failed! Accuracy {acc:.4f} < {min_acc}")
+            sys.exit(1) # Signal failure to GitHub Actions
+        else:
+            print(f"✅ Performance threshold met (Accuracy: {acc:.4f})")
 
 if __name__ == "__main__":
     train_pipeline()

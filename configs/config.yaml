@@ -11,6 +11,7 @@ model:
   n_estimators: 80
   random_state: 42
   type: RandomForestClassifier
+  min_accuracy_threshold: 0.70
 preprocessing:
   categorical_cols:
   - sex
