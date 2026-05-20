@@ -1,26 +1,30 @@
-# Create the config file
-New-Item -ItemType File -Path "configs\config.yaml" -Force
-
-# Populate it with the dataset specifications
-Set-Content configs\config.yaml @"
 data:
-  raw_path: "data/heart_disease.csv"
-  target_col: "target"
+  random_state: 42
+  raw_path: data/heart_disease.csv
+  target_col: target
   test_size: 0.2
-  random_state: 42
-
-preprocessing:
-  impute_strategy: "median"
-  categorical_cols: ["sex", "cp", "fbs", "restecg", "exang", "slope", "ca", "thal"]
-  numeric_cols: ["age", "trestbps", "chol", "thalach", "oldpeak"]
-
-model:
-  type: "RandomForestClassifier"
-  n_estimators: 100
-  max_depth: 5
-  random_state: 42
-
 mlflow:
-  experiment_name: "Heart_Disease_Classifier"
-  tracking_uri: "sqlite:///mlflow.db"
-"@
+  experiment_name: Heart_Disease_Classifier
+  tracking_uri: sqlite:///mlflow.db
+model:
+  max_depth: 4
+  n_estimators: 80
+  random_state: 42
+  type: RandomForestClassifier
+preprocessing:
+  categorical_cols:
+  - sex
+  - cp
+  - fbs
+  - restecg
+  - exang
+  - slope
+  - ca
+  - thal
+  impute_strategy: median
+  numeric_cols:
+  - age
+  - trestbps
+  - chol
+  - thalach
+  - oldpeak
