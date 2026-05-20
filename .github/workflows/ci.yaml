@@ -17,8 +17,8 @@ jobs:
       - run: pip install -r requirements.txt
       - run: pytest -o pythonpath=. -v
 
-  train:
-    needs: test  # This makes the training job dependent on the test job
+train:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -26,6 +26,12 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install -r requirements.txt
-      # This runs your experiment loop; ensure train.py exits with 
-      # a non-zero code if the performance threshold isn't met!
+      
+      # --- ADD THESE STEPS ---
+      - name: Install DVC
+        run: pip install dvc
+      - name: Pull data from DVC
+        run: dvc pull
+      # -----------------------
+      
       - run: python run_experiments.py
